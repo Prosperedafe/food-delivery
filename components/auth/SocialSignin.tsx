@@ -1,7 +1,13 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native"
 import { Path, Rect, Svg } from "react-native-svg"
 
-export const SocialSignIn = () => {
+interface ISocialSignIn {
+    color: string,
+    line: string
+    text: string
+}
+
+export const SocialSignIn = ({ color, line, text }: ISocialSignIn) => {
     return (
         <View style={{
             maxWidth: 330,
@@ -16,9 +22,17 @@ export const SocialSignIn = () => {
                 marginBottom: 18,
                 gap: 10
             }}>
-                <View style={style.lines}></View>
-                <Text style={{ color: '#fff', fontSize: 16 }}>sign in with</Text>
-                <Text style={style.lines}></Text>
+                <View style={{
+                    flexGrow: 1,
+                    height: .6,
+                    backgroundColor: line
+                }}></View>
+                <Text style={{ color: color, fontSize: 16 }}>{text}</Text>
+                <Text style={{
+                    height: .6,
+                    flexGrow: 1,
+                    backgroundColor: line
+                }}></Text>
             </View>
             <View style={{
                 justifyContent: 'center',
@@ -60,9 +74,4 @@ const style = StyleSheet.create({
         flexGrow: 1,
         flexBasis: 100
     },
-    lines: {
-        flexGrow: 1,
-        height: .6,
-        backgroundColor: '#fff'
-    }
 })

@@ -1,4 +1,4 @@
-import { View, Text, Image, TouchableOpacity } from 'react-native';
+import { View, Text, Image } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient'
 import { welcome } from '@/styles/welcome';
 import { colors } from '@/styles/colors';
@@ -16,7 +16,11 @@ const Welcome = () => {
                     <Text style={welcome.title}>Your favourite foods delivered fast at your door.</Text>
                 </View>
                 <View>
-                    <SocialSignIn />
+                    <SocialSignIn
+                        color='#fff'
+                        line='#FFFFFF80'
+                        text='sign in with'
+                    />
                     <Link href='/signup'
                         style={{
                             backgroundColor: 'hsla(0, 0%, 100%, 0.21)',
@@ -37,7 +41,8 @@ const Welcome = () => {
                         color: '#fff',
                         textAlign: 'center',
                         marginTop: 18
-                    }}>Already have an account? <Link style={{ textDecorationLine: 'underline' }} href='/login'>Sign In</Link> </Text>
+                    }}>Already have an account? <Link style={{ textDecorationLine: 'underline' }} href='/login'>Sign In</Link>
+                    </Text>
                 </View>
             </View>
             <LinearGradient style={welcome.gradient} colors={['hsla(231, 15%, 34%, .05)', '#191B2F']}></LinearGradient>
