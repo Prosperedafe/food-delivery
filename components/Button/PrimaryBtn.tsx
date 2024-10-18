@@ -31,7 +31,7 @@ export const PrimaryBtn = ({ text, maxWidth }: IPrimaryButton) => {
     })
 
     return (
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity activeOpacity={.9} style={styles.button}>
             <Text style={styles.text}>
                 {text}
             </Text>

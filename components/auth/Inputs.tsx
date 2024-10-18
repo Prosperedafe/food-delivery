@@ -11,7 +11,7 @@ export const AuthtextInput = ({ placeholder, label, keyboard }: InputLabelProps)
                 {label}
             </Text>
             <TextInput
-                style={inputSyles.textInut}
+                style={inputSyles.textInput}
                 placeholder={placeholder}
                 keyboardType={keyboard}
             />
@@ -29,7 +29,7 @@ export const AuthPasswordInput = ({ placeholder, label, keyboard }: InputLabelPr
             </Text>
             <View style={{ position: 'relative' }}>
                 <TextInput
-                    style={inputSyles.textInut}
+                    style={inputSyles.textInput}
                     placeholder={placeholder}
                     keyboardType={keyboard}
                     secureTextEntry={!showPassword}
@@ -51,7 +51,7 @@ export const AuthPasswordInput = ({ placeholder, label, keyboard }: InputLabelPr
 }
 
 const inputSyles = StyleSheet.create({
-    textInut: {
+    textInput: {
         fontSize: 17,
         color: colors.dark,
         fontWeight: '500',
