@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 16,
         paddingTop: 40,
         flexGrow: 1,
-        justifyContent: 'center',
+        backgroundColor: '#fff',
+        height: '100%'
     },
 })
