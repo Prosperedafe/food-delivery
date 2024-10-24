@@ -33,7 +33,8 @@ const Welcome = () => {
                             color: '#fff',
                             fontSize: 17,
                             fontWeight: '500',
-                            textAlign: 'center'
+                            textAlign: 'center',
+                            marginHorizontal: 'auto'
                         }}
                     >Start with email or phone</Link>
                     <Text style={{

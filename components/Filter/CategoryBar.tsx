@@ -1,6 +1,6 @@
 import { colors } from "@/styles/colors"
 import { useState } from "react"
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native"
+import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native"
 
 const foodCategory = [
     {
@@ -37,7 +37,10 @@ export const CategoryBar = () => {
     const [category, setCategory] = useState<string>('Burger')
 
     return (
-        <View style={styles.container}>
+        <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            style={styles.container}>
             {foodCategory.map((foodCat, index) =>
                 <TouchableOpacity
                     key={index}
@@ -55,21 +58,22 @@ export const CategoryBar = () => {
                     }}>{foodCat.name}</Text>
                 </TouchableOpacity>
             )}
-        </View>
+        </ScrollView>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
-        gap: 8,
-        paddingVertical: 20
+        paddingVertical: 15,
+        paddingLeft: 16,
     },
     foodBar: {
         borderRadius: 100,
         paddingHorizontal: 4,
         paddingTop: 4,
         height: 90,
+        marginRight: 8
     },
     foodName: {
         textAlign: 'center',

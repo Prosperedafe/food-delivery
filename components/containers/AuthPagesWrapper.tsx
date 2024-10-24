@@ -28,7 +28,6 @@ const styles = StyleSheet.create({
         paddingHorizontal: 16,
         paddingTop: 100,
         flexGrow: 1,
-        justifyContent: 'center',
     },
     fadeCircle: {
         position: 'absolute',
