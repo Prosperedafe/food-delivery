@@ -1,9 +1,9 @@
-import { colors } from "@/styles/colors"
-import { Link } from "expo-router"
-import { ScrollView, StyleSheet, Text, View } from "react-native"
-import Svg, { Path } from "react-native-svg"
-import { RestaurantCard } from "./Card"
-import { featured } from "@/data/featured"
+import { colors } from "@/styles/colors";
+import { Link } from "expo-router";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
+import Svg, { Path } from "react-native-svg";
+import { RestaurantCard } from "./Card";
+import { featured } from "@/data/featured";
 
 export const FeaturedRestaurants = () => {
     return (
@@ -17,21 +17,25 @@ export const FeaturedRestaurants = () => {
                     </Svg>
                 </Link>
             </View>
-            <ScrollView
-                horizontal
-                showsHorizontalScrollIndicator={false}
-                style={styles.container}
-            >
-                {featured.map((feature) =>
-                    <RestaurantCard
-                        key={feature?._id}
-                        {...feature}
-                    />
-                )}
-            </ScrollView>
+            <View>
+                <View>
+                    <ScrollView
+                        horizontal
+                        showsHorizontalScrollIndicator={false}
+                        contentContainerStyle={styles.container}
+                    >
+                        {featured.map((feature) =>
+                            <RestaurantCard
+                                key={feature._id}
+                                {...feature}
+                            />
+                        )}
+                    </ScrollView>
+                </View>
+            </View>
         </View>
-    )
-}
+    );
+};
 
 const styles = StyleSheet.create({
     container: {
@@ -42,21 +46,20 @@ const styles = StyleSheet.create({
     heading: {
         fontSize: 18,
         color: '#323643',
-        fontWeight: '600'
+        fontWeight: '600',
     },
     header: {
         paddingHorizontal: 16,
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
     },
     navButton: {
-        display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
         gap: 3,
         marginTop: 3,
         color: colors.primary,
-        fontSize: 13
-    }
-})
+        fontSize: 13,
+    },
+});

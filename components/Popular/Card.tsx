@@ -69,17 +69,18 @@ const styles = StyleSheet.create({
         zIndex: 2,
     },
     imageContainer: {
-        height: 147,
+        height: 130,
         overflow: 'hidden',
     },
     image: {
         width: '100%',
         height: '100%',
         resizeMode: 'cover',
+        borderRadius: 12
     },
     ratingBadge: {
         position: 'absolute',
-        top: 137,
+        top: 120,
         left: 10,
         backgroundColor: '#fff',
         borderRadius: 12,
