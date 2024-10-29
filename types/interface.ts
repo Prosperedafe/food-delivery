@@ -27,15 +27,24 @@ export type RestaurantFoodProps = {
     time: string;
     categories: string[];
     _id: string;
+    quantity?: any,
+    type: string
 };
 
 export type FoodItemProps = {
-    id: string;
+    _id: string;
     name: string;
     description: string;
     price: number;
     rating: number;
     reviewsCount: string;
     image: ImageSourcePropType;
-    isFavorite: boolean;
+    quantity?: any
+    type: string
 };
+
+export type IFavoriteIconProp = {
+    payload?: RestaurantFoodProps | FoodItemProps
+}
+
+export type FavoriteStoreProps = RestaurantFoodProps | FoodItemProps;

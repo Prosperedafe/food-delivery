@@ -24,11 +24,12 @@ export const FeaturedRestaurants = () => {
                         showsHorizontalScrollIndicator={false}
                         contentContainerStyle={styles.container}
                     >
-                        {featured.map((feature) =>
-                            <RestaurantCard
-                                key={feature._id}
-                                {...feature}
-                            />
+                        {featured?.map((feature) =>
+                            <View style={{ width: 250, }} key={feature?._id}>
+                                <RestaurantCard
+                                    {...feature}
+                                />
+                            </View>
                         )}
                     </ScrollView>
                 </View>
@@ -42,6 +43,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         paddingVertical: 20,
         paddingHorizontal: 16,
+        gap: 16
     },
     heading: {
         fontSize: 18,

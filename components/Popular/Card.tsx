@@ -10,7 +10,10 @@ export const PopularFoodCard = (food: FoodItemProps) => {
         <View style={styles.card}>
             <Text style={styles.priceTag}><Text style={{ fontSize: 8, color: colors.primary }}>$</Text>{food.price}</Text>
             <View style={styles.favoriteIcon}>
-                <FavoriteIcon favorite={food.isFavorite} />
+                <FavoriteIcon
+                    favorite={food.isFavorite}
+                    payload={food}
+                />
             </View>
             <View style={styles.imageContainer}>
                 <Image style={styles.image} source={typeof food.image === 'string' ? { uri: food.image } : food.image}
@@ -36,7 +39,8 @@ export const PopularFoodCard = (food: FoodItemProps) => {
 
 const styles = StyleSheet.create({
     card: {
-        width: 154,
+        maxWidth: 300,
+        flexBasis: 150,
         borderRadius: 12,
         backgroundColor: '#fff',
         overflow: 'hidden',
@@ -46,7 +50,6 @@ const styles = StyleSheet.create({
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.2,
         shadowRadius: 3,
-        marginRight: 20,
         flexGrow: 1
     },
     priceTag: {

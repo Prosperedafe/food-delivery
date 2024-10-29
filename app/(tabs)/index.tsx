@@ -5,7 +5,7 @@ import { PopularFoodCard } from '@/components/Popular/Card';
 import { FeaturedRestaurants } from '@/components/Restaurants/Featured';
 import { FoodSearchBar } from '@/components/SearchBar';
 import { popularFood } from '@/data/popular';
-import { View, Text, ScrollView } from 'react-native';
+import { View, Text } from 'react-native';
 
 const Index = () => {
 
@@ -38,11 +38,13 @@ const Index = () => {
                     style={{
                         paddingVertical: 16,
                         flexDirection: 'row',
+                        gap: 16,
+                        justifyContent: 'space-between'
                     }}>
                     {popularFood.map((food) =>
                         <PopularFoodCard
                             {...food}
-                            key={food?.id}
+                            key={food?._id}
                         />
                     )}
                 </View>

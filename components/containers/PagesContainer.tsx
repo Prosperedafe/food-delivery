@@ -19,5 +19,6 @@ const styles = StyleSheet.create({
         paddingTop: 40,
         flexGrow: 1,
         backgroundColor: '#fff',
+        minHeight: '100%'
     },
 })

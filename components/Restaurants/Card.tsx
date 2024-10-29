@@ -3,10 +3,10 @@ import { Image, StyleSheet, Text, View } from "react-native";
 import Svg, { Circle, Path } from "react-native-svg";
 import { FavoriteIcon } from "../FavoriteIcon";
 
-export const RestaurantCard = ({ image, rating, name, verified, delivery, time, categories }: RestaurantFoodProps) => {
+export const RestaurantCard = (feature: RestaurantFoodProps) => {
 
     const renderCategories = () =>
-        categories.map((category, index) => (
+        feature?.categories.map((category: any, index: number) => (
             <Text key={index} style={styles.category}>
                 {category}
             </Text>
@@ -15,10 +15,13 @@ export const RestaurantCard = ({ image, rating, name, verified, delivery, time, 
     return (
         <View style={styles.card}>
             <View style={styles.favoriteIconContainer}>
-                <FavoriteIcon favorite={true} />
+                <FavoriteIcon
+                    favorite={true}
+                    payload={feature}
+                />
             </View>
             <View style={styles.ratingBadge}>
-                <Text style={styles.ratingText}>{rating}</Text>
+                <Text style={styles.ratingText}>{feature?.rating}</Text>
                 <Svg width="11" height="10" viewBox="0 0 11 10" fill="none">
                     <Path
                         d="M8.94083 9.44598L5.88729 7.84144L2.83258 9.44598L3.41732 6.0451L0.943848 3.63712L4.35876 3.14125L5.88729 0L7.41581 3.14125L10.8307 3.63712L8.35725 6.04627L8.94083 9.44598Z"
@@ -30,13 +33,13 @@ export const RestaurantCard = ({ image, rating, name, verified, delivery, time, 
             <View style={styles.imageContainer}>
                 <Image
                     style={styles.image}
-                    source={typeof image === 'string' ? { uri: image } : image}
+                    source={typeof feature?.image === 'string' ? { uri: feature?.image } : feature?.image}
                 />
             </View>
             <View style={styles.details}>
                 <View style={styles.row}>
-                    <Text style={styles.name}>{name}</Text>
-                    {verified && (
+                    <Text style={styles.name}>{feature?.name}</Text>
+                    {feature?.verified && (
                         <Svg style={styles.verifiedIcon} width="10" height="10" viewBox="0 0 10 10" fill="none">
                             <Circle cx="5" cy="5" r="5" fill="#029094" />
                             <Path d="M3.3335 4.22214L4.5835 5.55547L6.66683 3.33325" stroke="white" />
@@ -46,11 +49,11 @@ export const RestaurantCard = ({ image, rating, name, verified, delivery, time, 
                 <View style={styles.infoRow}>
                     <View style={styles.row}>
                         <Image style={styles.icon} source={require('@/assets/icons/deliveryman-icon.png')} />
-                        <Text style={styles.infoText}>{delivery}</Text>
+                        <Text style={styles.infoText}>{feature?.delivery}</Text>
                     </View>
                     <View style={styles.row}>
                         <Image style={styles.icon} source={require('@/assets/icons/timer-icon.png')} />
-                        <Text style={styles.infoText}>{time}</Text>
+                        <Text style={styles.infoText}>{feature?.time}</Text>
                     </View>
                 </View>
                 <View style={styles.categoriesContainer}>{renderCategories()}</View>
@@ -61,9 +64,9 @@ export const RestaurantCard = ({ image, rating, name, verified, delivery, time, 
 
 const styles = StyleSheet.create({
     card: {
+        width: '100%',
         borderRadius: 12,
         overflow: 'hidden',
-        width: 250,
         marginRight: 20,
         position: 'relative',
         backgroundColor: '#fff',

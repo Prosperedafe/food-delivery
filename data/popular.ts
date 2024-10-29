@@ -1,6 +1,6 @@
 export const popularFood = [
     {
-        id: 'salad',
+        _id: 'salad',
         name: 'Salmon Salad',
         description: 'Baked salmon fish',
         price: 5.50,
@@ -8,9 +8,10 @@ export const popularFood = [
         reviewsCount: '25+',
         image: require('@/assets/images/salmon-salad.png'),
         isFavorite: true,
+        type: 'popular'
     },
     {
-        id: 'ice',
+        _id: 'ice',
         name: 'Spaghetti Bolognese',
         description: 'Pasta with meat sauce',
         price: 7.25,
@@ -18,5 +19,6 @@ export const popularFood = [
         reviewsCount: '50+',
         image: require('@/assets/images/salmon-ice.png'),
         isFavorite: false,
+        type: 'popular'
     },
 ];
